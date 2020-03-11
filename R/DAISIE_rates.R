@@ -185,15 +185,12 @@ island_area <- function(timeval,
   theta <- area_pars$island_gradient_angle
   proptime <- timeval / Tmax
   theta <- theta * (pi / 180)
-  # Constant ontogeny and sea-level
   if ((island_ontogeny == 0 & sea_level == 0)) {
     if (Amax != 1 || is.null(Amax)) {
       warning("Constant island area requires a maximum area of 1.")
     }
     return(1)
   }
-
-  # Beta function ontogeny and constant sea-level
   if (island_ontogeny == 1 & sea_level == 0) {
     f <- Topt / (1 - Topt)
     a <- f * peak / (1 + f)
@@ -203,7 +200,6 @@ island_area <- function(timeval,
       (1 - proptime) ^ b / ((a / (a + b)) ^ a * (b / (a + b)) ^ b)
     return(At)
   }
-
   if (island_ontogeny == 0 & sea_level == 1) {
     angular_freq <- 2 * pi * freq
     delta_sl <- ampl * sin(proptime * angular_freq)
@@ -224,7 +220,8 @@ island_area <- function(timeval,
     delta_sl <- ampl * sin(proptime * angular_freq)
     r_zero <- sqrt((A_beta * cos(theta)) / pi)
     h_zero <- tan(theta) * r_zero
-    At <- pi * ((h_zero - delta_sl) ^ 2) * cos(theta) / (sin(theta)^2)
+    h_delta <- max(0, h_zero - delta_sl)
+    At <- pi * (h_delta ^ 2) * cos(theta) / (sin(theta)^2)
     return(At)
   }
 }
