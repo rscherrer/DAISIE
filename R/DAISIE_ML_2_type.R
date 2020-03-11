@@ -26,7 +26,7 @@ DAISIE_loglik_all_choosepar2 <- function(
       pars1 <- trpars1 / (1 - trpars1)
       loglik <- 0
       for (i in 1:length(datalist)) {
-        loglik <- loglik + DAISIE_loglik_all(pars1 = pars1[i, ], pars2 = pars2, datalist = datalist[[i]], methode = methode, abstolint = abstolint, reltolint = reltolint)
+        loglik <- loglik + DAISIE_loglik_CS(pars1 = pars1[i, ], pars2 = pars2, datalist = datalist[[i]], methode = methode, abstolint = abstolint, reltolint = reltolint)
       }
    }
    if (is.nan(loglik) || is.na(loglik)) {
@@ -60,7 +60,7 @@ DAISIE_loglik_all_choosepar2 <- function(
 #' of estimated parameters, i.e. degrees of feedom} \item{conv}{ gives a
 #' message on convergence of optimization; conv = 0 means convergence}
 #'
-DAISIE_ML2 <- function(
+DAISIE_ML_2_type <- function(
   datalist,
   initparsopt,
   idparsopt,

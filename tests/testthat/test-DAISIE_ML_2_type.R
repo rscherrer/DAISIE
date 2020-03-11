@@ -1,4 +1,4 @@
-context("DAISIE_ML2")
+context("DAISIE_ML_2_type")
 test_that("use", {
 
   # This is a rough MLE test, built for fast execution. A more thorough test
@@ -6,7 +6,7 @@ test_that("use", {
 
   if (Sys.getenv("TRAVIS") != "") {
     utils::data(Macaronesia_datalist, package = "DAISIE")
-    tested_MLE <- DAISIE:::DAISIE_ML2(
+    tested_MLE <- DAISIE:::DAISIE_ML_2_type(
       datalist = Macaronesia_datalist,
       initparsopt = c(
         1.053151832,
@@ -65,7 +65,7 @@ test_that("use", {
 
 test_that("abuse", {
   if (Sys.getenv("TRAVIS") != "") {
-    expect_error(tested_MLE <- DAISIE:::DAISIE_ML2(
+    expect_error(tested_MLE <- DAISIE:::DAISIE_ML_2_type(
       datalist = "nonsense",
       initparsopt = c(
         1.053151832,
