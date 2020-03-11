@@ -298,8 +298,7 @@ DAISIE_loglik_CS_M1 <- DAISIE_loglik <- function(pars1,
     return(-Inf)
   }
 
-  if(is.na(pars2[4]))
-  {
+  if(is.na(pars2[4])) {
     pars2[4] = 0
   }
   ddep <- pars2[2]
@@ -606,7 +605,6 @@ DAISIE_loglik_CS_choice <- function(pars1,
 
 
 #' @name DAISIE_loglik_CS
-#' @aliases DAISIE_loglik_all DAISIE_loglik_CS
 #' @title Computes the loglikelihood of the DAISIE model with clade-specific
 #' diversity-dependence given data and a set of model parameters
 #' @description Computes the loglikelihood of the DAISIE model with clade-specific
@@ -687,7 +685,7 @@ DAISIE_loglik_CS_choice <- function(pars1,
 #' @param reltolint Relative tolerance of the integration
 #' @return The loglikelihood
 #' @author Rampal S. Etienne & Bart Haegeman
-#' @seealso \code{\link{DAISIE_ML}}, \code{\link{DAISIE_sim_constant_rate}},
+#' @seealso \code{\link{DAISIE_ML_CS}}, \code{\link{DAISIE_sim_constant_rate}},
 #' \code{\link{DAISIE_sim_time_dependent}},
 #' \code{\link{DAISIE_sim_constant_rate_shift}}
 #' @references Valente, L.M., A.B. Phillimore and R.S. Etienne (2015).
@@ -700,17 +698,16 @@ DAISIE_loglik_CS_choice <- function(pars1,
 #' pars1 = c(0.195442017,0.087959583,Inf,0.002247364,0.873605049,
 #'           3755.202241,8.909285094,14.99999923,0.002247364,0.873605049,0.163)
 #' pars2 = c(100,11,0,1)
-#' DAISIE_loglik_all(pars1,pars2,Galapagos_datalist_2types)
+#' DAISIE_loglik_CS(pars1,pars2,Galapagos_datalist_2types)
 #'
 #' @export DAISIE_loglik_CS
-#' @export DAISIE_loglik_all
-DAISIE_loglik_CS <- DAISIE_loglik_all <- function(pars1,
-                                                  pars2,
-                                                  datalist,
-                                                  methode = "lsodes",
-                                                  CS_version = 1,
-                                                  abstolint = 1E-16,
-                                                  reltolint = 1E-10) {
+DAISIE_loglik_CS <- function(pars1,
+                             pars2,
+                             datalist,
+                             methode = "lsodes",
+                             CS_version = 1,
+                             abstolint = 1E-16,
+                             reltolint = 1E-10) {
   # datalist = list of all data: branching times, status of clade,
   # and numnber of missing species
   # datalist[[,]][1] = list of branching times (positive, from present to past)
