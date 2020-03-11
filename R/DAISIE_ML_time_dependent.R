@@ -23,7 +23,7 @@ DAISIE_loglik_all_choosepar3 = function(
       if (min(pars1) < 0) {
          loglik <- -Inf
       } else {
-         loglik <- DAISIE_loglik_all(pars1 = pars1, pars2 = pars2, datalist = datalist, methode = methode, CS_version = CS_version, abstolint = abstolint, reltolint = reltolint)
+         loglik <- DAISIE_loglik_CS(pars1 = pars1, pars2 = pars2, datalist = datalist, methode = methode, CS_version = CS_version, abstolint = abstolint, reltolint = reltolint)
       }
       if (is.nan(loglik) || is.na(loglik)) {
          cat("There are parameter values used which cause numerical problems.\n")
@@ -49,7 +49,7 @@ DAISIE_loglik_all_choosepar3 = function(
 #' \item{df}{ gives the number of estimated parameters, i.e. degrees of feedom}
 #' \item{conv}{ gives a message on convergence of optimization;
 #' conv = 0 means convergence}
-DAISIE_ML3 <- function(
+DAISIE_ML_time_dependent <- function(
   datalist,
   initparsopt,
   idparsopt,
