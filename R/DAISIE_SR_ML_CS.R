@@ -149,7 +149,7 @@ DAISIE_SR_loglik_all_choosepar <- function(
 #' of estimated parameters, i.e. degrees of feedom} \item{conv}{ gives a
 #' message on convergence of optimization; conv = 0 means convergence}
 #' @author Rampal S. Etienne
-#' @seealso \code{\link{DAISIE_loglik_all}},
+#' @seealso \code{\link{DAISIE_loglik_CS}},
 #' \code{\link{DAISIE_sim_constant_rate}}
 #' @references Valente, L.M., A.B. Phillimore and R.S. Etienne (2015).
 #' Equilibrium and non-equilibrium dynamics simultaneously operate in the
@@ -162,7 +162,7 @@ DAISIE_SR_loglik_all_choosepar <- function(
 #' # we use:
 #'
 #' utils::data(Galapagos_datalist)
-#' DAISIE_ML(
+#' DAISIE_ML_CS(
 #'    datalist = Galapagos_datalist,
 #'    initparsopt = c(2.5,2.7,20,0.009,1.01),
 #'    ddmodel = 11,
@@ -175,7 +175,7 @@ DAISIE_SR_loglik_all_choosepar <- function(
 #' # except K (which we set equal to Inf), we use:
 #'
 #' utils::data(Galapagos_datalist)
-#' DAISIE_ML(
+#' DAISIE_ML_CS(
 #'    datalist = Galapagos_datalist,
 #'    initparsopt = c(2.5,2.7,0.009,1.01),
 #'    idparsopt = c(1,2,4,5),
@@ -188,7 +188,7 @@ DAISIE_SR_loglik_all_choosepar <- function(
 #' # set equal to Inf), fixing the proportion of finch-type species at 0.163, we use:
 #'
 #' utils::data(Galapagos_datalist_2types)
-#' DAISIE_ML(
+#' DAISIE_ML_CS(
 #'    datalist = Galapagos_datalist_2types,
 #'    initparsopt = c(0.38,0.55,0.004,1.1,2.28),
 #'    idparsopt = c(1,2,4,5,6),
@@ -202,7 +202,7 @@ DAISIE_SR_loglik_all_choosepar <- function(
 #' # parameters, fixing the proportion of finch-type species at 0.163, we use:
 #'
 #' utils::data(Galapagos_datalist_2types)
-#' DAISIE_ML(
+#' DAISIE_ML_CS(
 #'    datalist = Galapagos_datalist_2types,
 #'    ddmodel = 11,
 #'    initparsopt = c(0.19,0.09,0.002,0.87,20,8.9,15),
@@ -219,7 +219,7 @@ DAISIE_SR_loglik_all_choosepar <- function(
 #' # in the mainland pool. we use:
 #'
 #' utils::data(Galapagos_datalist_2types)
-#' DAISIE_ML(
+#' DAISIE_ML_CS(
 #'    datalist = Galapagos_datalist_2types,
 #'    initparsopt = c(2.48,2.7,0.009,1.01,2.25,0.163),
 #'    idparsopt = c(1,2,4,5,7,11),
@@ -232,7 +232,7 @@ DAISIE_SR_loglik_all_choosepar <- function(
 #' # and we want to optimize all parameters, we use:
 #'
 #' utils::data(Galapagos_datalist)
-#' DAISIE_ML(
+#' DAISIE_ML_CS(
 #'    datalist = list(Galapagos_datalist,Galapagos_datalist),
 #'    datatype = 'multiple',
 #'    initparsopt = c(2.5,2.7,20,0.009,1.01,0.009,1.01),
@@ -249,7 +249,7 @@ DAISIE_SR_loglik_all_choosepar <- function(
 #' # and we want to optimize all parameters, we use:
 #'
 #' utils::data(Macaronesia_datalist)
-#' DAISIE_ML(
+#' DAISIE_ML_CS(
 #'    datalist = Macaronesia_datalist,
 #'    datatype = 'multiple',
 #'    initparsopt = c(1.053151832,0.052148979,0.512939011,0.133766934,0.152763179),

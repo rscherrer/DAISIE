@@ -121,9 +121,9 @@ can now be run directly in `DAISIE` functions.
  
 The function that conducts maximum likelihood optimization of 
 DAISIE model parameters is 
-called `DAISIE_ML`. 
+called `DAISIE_ML_CS`. 
  
-Different models can be specified using ddmodel option in `DAISIE_ML`: 
+Different models can be specified using ddmodel option in `DAISIE_ML_CS`: 
 
  * `ddmodel = 0` : no diversity-dependence 
  * `ddmodel = 1` : linear diversity-dependence in speciation rate 
@@ -137,7 +137,7 @@ following order: (1) cladogenesis rate, (2) extinction rate, (3) K’ or carryin
 and (5) anagenesis rate. 
  
 The identities of the parameters to be optimized or fixed are specified 
-with `idparsopt` and `idparsfix` within the DAISIE_ML function. 
+with `idparsopt` and `idparsfix` within the DAISIE_ML_CS function. 
 For example, to optimize all parameters we set 
 `idparsopt=1:5` and `idparsfix=NULL`. 
 To optimize all parameters but fix the rate of extinction, 
@@ -172,7 +172,7 @@ optimize all 5 parameters (`idparsopt = 1:5`) and we will fix no parameters (`pa
 ```
 data(Galapagos_datalist) 
 
-DAISIE_ML( 
+DAISIE_ML_CS( 
   datalist = Galapagos_datalist, 
   initparsopt = c(2.5,2.7,20,0.009,1.01), 
   ddmodel = 11, 
@@ -185,7 +185,7 @@ DAISIE_ML(
 
 This will take several minutes to run. The parameters optimized and fixed as well as the 
 loglikelihood of the initial starting parameters we have set are shown at the top of the 
-screen output of DAISIE_ML. Once the optimization is completed, the program will output 
+screen output of DAISIE_ML_CS. Once the optimization is completed, the program will output 
 the maximum likelihood parameter estimates and the maximum loglikelihood value. For a 
 given dataset, the likelihood of different DAISIE models can be compared with information 
 criteria such as BIC and AIC. 
@@ -199,7 +199,7 @@ model (ddmodel=0), and fix the parameter number 3 which corresponds to K’ to i
 
 data(Galapagos_datalist) 
 
-DAISIE_ML( 
+DAISIE_ML_CS( 
   datalist = Galapagos_datalist, 
   initparsopt = c(2.5,2.7,0.009,1.01), 
   idparsopt = c(1,2,4,5), 
@@ -216,7 +216,7 @@ respectively to K’ and rate of anagenesis.
 
 ```
 data(Galapagos_datalist) 
-DAISIE_ML( 
+DAISIE_ML_CS( 
   datalist=Galapagos_datalist, 
   initparsopt = c(2.5,2.7,0.009), 
   idparsopt = c(1,2,4), 
@@ -247,7 +247,7 @@ background – using idparsnoshift = c(7,8,9,10)).
 ```
 data(Galapagos_datalist_2types) 
 
-DAISIE_ML( 
+DAISIE_ML_CS( 
   ddmodel=11, 
   datalist=Galapagos_datalist_2types, 
   initparsopt= c(0.38,0.55,20,0.004,1.1,2.28), 
@@ -263,7 +263,7 @@ DAISIE_ML(
 ```
 data(Galapagos_datalist_2types) 
  
-DAISIE_ML( 
+DAISIE_ML_CS( 
   ddmodel=0, 
   datalist=Galapagos_datalist_2types, 
   initparsopt = c(0.38,0.55,0.004,1.1,2.28,2), 

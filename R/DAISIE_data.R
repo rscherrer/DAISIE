@@ -1,7 +1,7 @@
 #' @name Galapagos_datalist
 #' @title Colonization and branching times of 8
 #' terrestrial avifaunal clades in list format,
-#' accepted by DAISIE_ML and DAISIE_loglik_all
+#' accepted by DAISIE_ML_CS and DAISIE_loglik_CS
 #' @docType data
 #' @format A list with 9 elements the first of which contains 2 elements and
 #' the following 8 containing 5 components.
@@ -36,7 +36,7 @@
 #' clades) \cr
 #' \code{$type1or2} - whether the colonist belongs to type 1 or
 #' type 2. In this dataset all are equal to 1. \cr
-#' @seealso \code{\link{DAISIE_dataprep}}, \code{\link{DAISIE_ML}}
+#' @seealso \code{\link{DAISIE_dataprep}}, \code{\link{DAISIE_ML_CS}}
 #' @source Valente, L.M., A.B. Phillimore and R.S. Etienne (2015). Equilibrium
 #' and non-equilibrium dynamics simultaneously operate in the Galapagos
 #' islands. Ecology Letters 18: 844-852.
@@ -46,7 +46,7 @@ NULL
 
 #' @name Galapagos_datalist_2types
 #' @title Colonization and branching times of 8 terrestrial avifaunal clades in
-#' list format, accepted by DAISIE_ML and DAISIE_loglik_all
+#' list format, accepted by DAISIE_ML_CS and DAISIE_loglik_CS
 #' @docType data
 #' @format A list with 9 elements the first of which contains 3 elements and
 #' the following 8 containing 5 components.
@@ -81,7 +81,7 @@ NULL
 #' clades) \cr
 #' \code{$type1or2} - whether the colonist belongs to type 1 or
 #' type 2. In this dataset only the finches are type 2 \cr
-#' @seealso \code{\link{DAISIE_dataprep}}, \code{\link{DAISIE_ML}}
+#' @seealso \code{\link{DAISIE_dataprep}}, \code{\link{DAISIE_ML_CS}}
 #' @source Valente, L.M., A.B. Phillimore and R.S. Etienne (2015). Equilibrium
 #' and non-equilibrium dynamics simultaneously operate in the Galapagos
 #' islands. Ecology Letters 18: 844-852.
@@ -113,7 +113,7 @@ NULL
 #' of Non-endemic, Non-endemic_MaxAge and Endemic anagenetic species. For
 #' cladogenetic species these should be branching times of the radiation
 #' including the stem age of the radiation.\cr
-#' @seealso \code{\link{DAISIE_dataprep}}, \code{\link{DAISIE_ML}}
+#' @seealso \code{\link{DAISIE_dataprep}}, \code{\link{DAISIE_ML_CS}}
 #' @source Valente, L.M., A.B. Phillimore and R.S. Etienne (2015). Equilibrium
 #' and non-equilibrium dynamics simultaneously operate in the Galapagos
 #' islands. Ecology Letters 18: 844-852.
@@ -244,7 +244,7 @@ NULL
 #' @name Macaronesia_datalist
 #' @title Colonization and branching times of terrestrial avifaunal clades from
 #' Azores, Canary Islands, Cape Verde and Madeira in list format, accepted by
-#' DAISIE_ML and DAISIE_loglik_all
+#' DAISIE_ML_CS and DAISIE_loglik_CS
 #' @docType data
 #' @format A list with 4 main elements for each archipelago. Each element has
 #' several sub-elements.
@@ -276,7 +276,7 @@ NULL
 #' \code{$type1or2} -
 #' whether the colonist belongs to type 1 or type 2. In this dataset all are
 #' equal to 1. \cr
-#' @seealso \code{\link{DAISIE_dataprep}}, \code{\link{DAISIE_ML}}
+#' @seealso \code{\link{DAISIE_dataprep}}, \code{\link{DAISIE_ML_CS}}
 #' @source
 #' Valente L., Illera J.C, Havenstein K., Pallien T., Etienne R.S., Tiedemann
 #' R. Macroevolutionary dynamics in Atlantic island avifaunas: were MacArthur &
@@ -287,7 +287,7 @@ NULL
 
 #' @name Biwa_datalist
 #' @title Colonization and branching times of 68 fish clades in list
-#' format, accepted by DAISIE_ML, DAISIE_SR_ML, DAISIE_loglik_all and DAISIE_SR_loglik_all
+#' format, accepted by DAISIE_ML_CS, DAISIE_SR_ML, DAISIE_loglik_CS and DAISIE_SR_loglik_all
 #' @docType data
 #' @format A list with 69 elements the first of which contains 2 elements and
 #' the following 68 containing 5 components.
@@ -322,7 +322,7 @@ NULL
 #' clades) \cr
 #' \code{$type1or2} - whether the colonist belongs to type 1 or
 #' type 2. In this dataset all are equal to 1. \cr
-#' @seealso \code{\link{DAISIE_dataprep}}, \code{\link{DAISIE_ML}}, \code{\link{DAISIE_SR_ML}}
+#' @seealso \code{\link{DAISIE_dataprep}}, \code{\link{DAISIE_ML_CS}}, \code{\link{DAISIE_SR_ML}}
 #' @source Hauffe, T., D. Delicado, R.S. Etienne and L. Valente (submitted).
 #' Lake expansion increases equilibrium diversity via the target effect of
 #' island biogeography

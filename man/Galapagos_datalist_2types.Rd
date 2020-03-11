@@ -4,7 +4,7 @@
 \name{Galapagos_datalist_2types}
 \alias{Galapagos_datalist_2types}
 \title{Colonization and branching times of 8 terrestrial avifaunal clades in
-list format, accepted by DAISIE_ML and DAISIE_loglik_all}
+list format, accepted by DAISIE_ML_CS and DAISIE_loglik_CS}
 \format{A list with 9 elements the first of which contains 3 elements and
 the following 8 containing 5 components.}
 \source{
@@ -46,6 +46,6 @@ clades) \cr
 type 2. In this dataset only the finches are type 2 \cr
 }
 \seealso{
-\code{\link{DAISIE_dataprep}}, \code{\link{DAISIE_ML}}
+\code{\link{DAISIE_dataprep}}, \code{\link{DAISIE_ML_CS}}
 }
 \keyword{datasets}

@@ -4,7 +4,7 @@
 \name{Biwa_datalist}
 \alias{Biwa_datalist}
 \title{Colonization and branching times of 68 fish clades in list
-format, accepted by DAISIE_ML, DAISIE_SR_ML, DAISIE_loglik_all and DAISIE_SR_loglik_all}
+format, accepted by DAISIE_ML_CS, DAISIE_SR_ML, DAISIE_loglik_CS and DAISIE_SR_loglik_all}
 \format{A list with 69 elements the first of which contains 2 elements and
 the following 68 containing 5 components.
 #' @description A list containing the colonization and branching times of the
@@ -45,9 +45,9 @@ island biogeography
 }
 \description{
 Colonization and branching times of 68 fish clades in list
-format, accepted by DAISIE_ML, DAISIE_SR_ML, DAISIE_loglik_all and DAISIE_SR_loglik_all
+format, accepted by DAISIE_ML_CS, DAISIE_SR_ML, DAISIE_loglik_CS and DAISIE_SR_loglik_all
 }
 \seealso{
-\code{\link{DAISIE_dataprep}}, \code{\link{DAISIE_ML}}, \code{\link{DAISIE_SR_ML}}
+\code{\link{DAISIE_dataprep}}, \code{\link{DAISIE_ML_CS}}, \code{\link{DAISIE_SR_ML}}
 }
 \keyword{datasets}

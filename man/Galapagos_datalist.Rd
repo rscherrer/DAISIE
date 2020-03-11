@@ -5,7 +5,7 @@
 \alias{Galapagos_datalist}
 \title{Colonization and branching times of 8
 terrestrial avifaunal clades in list format,
-accepted by DAISIE_ML and DAISIE_loglik_all}
+accepted by DAISIE_ML_CS and DAISIE_loglik_CS}
 \format{A list with 9 elements the first of which contains 2 elements and
 the following 8 containing 5 components.}
 \source{
@@ -47,6 +47,6 @@ clades) \cr
 type 2. In this dataset all are equal to 1. \cr
 }
 \seealso{
-\code{\link{DAISIE_dataprep}}, \code{\link{DAISIE_ML}}
+\code{\link{DAISIE_dataprep}}, \code{\link{DAISIE_ML_CS}}
 }
 \keyword{datasets}

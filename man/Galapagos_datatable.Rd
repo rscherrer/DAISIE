@@ -33,6 +33,6 @@ cladogenetic species these should be branching times of the radiation
 including the stem age of the radiation.\cr
 }
 \seealso{
-\code{\link{DAISIE_dataprep}}, \code{\link{DAISIE_ML}}
+\code{\link{DAISIE_dataprep}}, \code{\link{DAISIE_ML_CS}}
 }
 \keyword{datasets}

@@ -5,7 +5,7 @@
 \alias{Macaronesia_datalist}
 \title{Colonization and branching times of terrestrial avifaunal clades from
 Azores, Canary Islands, Cape Verde and Madeira in list format, accepted by
-DAISIE_ML and DAISIE_loglik_all}
+DAISIE_ML_CS and DAISIE_loglik_CS}
 \format{A list with 4 main elements for each archipelago. Each element has
 several sub-elements.}
 \source{
@@ -44,6 +44,6 @@ whether the colonist belongs to type 1 or type 2. In this dataset all are
 equal to 1. \cr
 }
 \seealso{
-\code{\link{DAISIE_dataprep}}, \code{\link{DAISIE_ML}}
+\code{\link{DAISIE_dataprep}}, \code{\link{DAISIE_ML_CS}}
 }
 \keyword{datasets}

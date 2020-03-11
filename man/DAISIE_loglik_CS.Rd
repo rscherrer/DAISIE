@@ -2,7 +2,6 @@
 % Please edit documentation in R/DAISIE_loglik_CS.R
 \name{DAISIE_loglik_CS}
 \alias{DAISIE_loglik_CS}
-\alias{DAISIE_loglik_all}
 \title{Computes the loglikelihood of the DAISIE model with clade-specific
 diversity-dependence given data and a set of model parameters}
 \usage{
@@ -111,7 +110,7 @@ utils::data(Galapagos_datalist_2types)
 pars1 = c(0.195442017,0.087959583,Inf,0.002247364,0.873605049,
           3755.202241,8.909285094,14.99999923,0.002247364,0.873605049,0.163)
 pars2 = c(100,11,0,1)
-DAISIE_loglik_all(pars1,pars2,Galapagos_datalist_2types)
+DAISIE_loglik_CS(pars1,pars2,Galapagos_datalist_2types)
 
 }
 \references{
@@ -120,7 +119,7 @@ Equilibrium and non-equilibrium dynamics simultaneously operate in the
 Galapagos islands. Ecology Letters 18: 844-852.
 }
 \seealso{
-\code{\link{DAISIE_ML}}, \code{\link{DAISIE_sim_constant_rate}},
+\code{\link{DAISIE_ML_CS}}, \code{\link{DAISIE_sim_constant_rate}},
 \code{\link{DAISIE_sim_time_dependent}},
 \code{\link{DAISIE_sim_constant_rate_shift}}
 }

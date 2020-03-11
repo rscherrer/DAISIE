@@ -1,5 +1,4 @@
-#' @name DAISIE_ML
-#' @aliases DAISIE_ML_CS DAISIE_ML
+#' @name DAISIE_ML_CS
 #' @title Maximization of the loglikelihood under the DAISIE model with clade-specific
 #' diversity-dependence
 #' @description This function computes the maximum likelihood estimates of the parameters of
@@ -37,7 +36,7 @@
 #' of estimated parameters, i.e. degrees of feedom} \item{conv}{ gives a
 #' message on convergence of optimization; conv = 0 means convergence}
 #' @author Rampal S. Etienne
-#' @seealso \code{\link{DAISIE_loglik_all}},
+#' @seealso \code{\link{DAISIE_loglik_CS}},
 #' \code{\link{DAISIE_sim_constant_rate}},
 #' \code{\link{DAISIE_sim_time_dependent}},
 #' \code{\link{DAISIE_sim_constant_rate_shift}}
@@ -52,7 +51,7 @@
 #' # we use:
 #'
 #' utils::data(Galapagos_datalist)
-#' DAISIE_ML(
+#' DAISIE_ML_CS(
 #'    datalist = Galapagos_datalist,
 #'    initparsopt = c(2.5,2.7,20,0.009,1.01),
 #'    ddmodel = 11,
@@ -65,7 +64,7 @@
 #' # except K (which we set equal to Inf), we use:
 #'
 #' utils::data(Galapagos_datalist)
-#' DAISIE_ML(
+#' DAISIE_ML_CS(
 #'    datalist = Galapagos_datalist,
 #'    initparsopt = c(2.5,2.7,0.009,1.01),
 #'    idparsopt = c(1,2,4,5),
@@ -78,7 +77,7 @@
 #' # set equal to Inf), fixing the proportion of finch-type species at 0.163, we use:
 #'
 #' utils::data(Galapagos_datalist_2types)
-#' DAISIE_ML(
+#' DAISIE_ML_CS(
 #'    datalist = Galapagos_datalist_2types,
 #'    initparsopt = c(0.38,0.55,0.004,1.1,2.28),
 #'    idparsopt = c(1,2,4,5,6),
@@ -92,7 +91,7 @@
 #' # parameters, fixing the proportion of finch-type species at 0.163, we use:
 #'
 #' utils::data(Galapagos_datalist_2types)
-#' DAISIE_ML(
+#' DAISIE_ML_CS(
 #'    datalist = Galapagos_datalist_2types,
 #'    ddmodel = 11,
 #'    initparsopt = c(0.19,0.09,0.002,0.87,20,8.9,15),
@@ -109,7 +108,7 @@
 #' # in the mainland pool. we use:
 #'
 #' utils::data(Galapagos_datalist_2types)
-#' DAISIE_ML(
+#' DAISIE_ML_CS(
 #'    datalist = Galapagos_datalist_2types,
 #'    initparsopt = c(2.48,2.7,0.009,1.01,2.25,0.163),
 #'    idparsopt = c(1,2,4,5,7,11),
@@ -122,7 +121,7 @@
 #' # and we want to optimize all parameters, we use:
 #'
 #' utils::data(Galapagos_datalist)
-#' DAISIE_ML(
+#' DAISIE_ML_CS(
 #'    datalist = list(Galapagos_datalist,Galapagos_datalist),
 #'    datatype = 'multiple',
 #'    initparsopt = c(2.5,2.7,20,0.009,1.01,0.009,1.01),
@@ -139,7 +138,7 @@
 #' # and we want to optimize all parameters, we use:
 #'
 #' utils::data(Macaronesia_datalist)
-#' DAISIE_ML(
+#' DAISIE_ML_CS(
 #'    datalist = Macaronesia_datalist,
 #'    datatype = 'multiple',
 #'    initparsopt = c(1.053151832,0.052148979,0.512939011,0.133766934,0.152763179),
@@ -152,14 +151,15 @@
 #' ")
 #'
 #' @export DAISIE_ML_CS
-#' @export DAISIE_ML
-DAISIE_ML_CS <- DAISIE_ML <- function(
+DAISIE_ML_CS <- function(
      datalist,
      datatype = "single",
      initparsopt,
      idparsopt,
      parsfix,
      idparsfix,
+     relaxed_dist_pars = NULL,
+     idparsrelaxed = NULL,
      idparsnoshift = 6:10,
      idparsmat = NULL,
      res = 100,
@@ -179,60 +179,85 @@ DAISIE_ML_CS <- DAISIE_ML <- function(
      ) {
   if (datatype == "single") {
      if (is.na(island_ontogeny)) {
-       out <- DAISIE_ML1(datalist = datalist,
-                        initparsopt = initparsopt,
-                        idparsopt = idparsopt,
-                        parsfix = parsfix,
-                        idparsfix = idparsfix,
-                        idparsnoshift = idparsnoshift,
-                        res = res,
-                        ddmodel = ddmodel,
-                        cond = cond,
-                        island_ontogeny = island_ontogeny,
-                        eqmodel = eqmodel,
-                        x_E = x_E,
-                        x_I = x_I,
-                        tol = tol,
-                        maxiter = maxiter,
-                        methode = methode,
-                        optimmethod = optimmethod,
-                        CS_version = CS_version,
-                        verbose = 0,
-                        tolint = tolint)
+       if (is.null(idparsrelaxed)) {
+         out <- DAISIE_ML_constant_rate(datalist = datalist,
+                                        initparsopt = initparsopt,
+                                        idparsopt = idparsopt,
+                                        parsfix = parsfix,
+                                        idparsfix = idparsfix,
+                                        idparsnoshift = idparsnoshift,
+                                        res = res,
+                                        ddmodel = ddmodel,
+                                        cond = cond,
+                                        island_ontogeny = island_ontogeny,
+                                        eqmodel = eqmodel,
+                                        x_E = x_E,
+                                        x_I = x_I,
+                                        tol = tol,
+                                        maxiter = maxiter,
+                                        methode = methode,
+                                        optimmethod = optimmethod,
+                                        CS_version = CS_version,
+                                        verbose = 0,
+                                        tolint = tolint)
+       } else {
+         out <- DAISIE_ML_relaxed_rate(datalist = datalist,
+                                       initparsopt = initparsopt,
+                                       idparsopt = idparsopt,
+                                       parsfix = parsfix,
+                                       idparsfix = idparsfix,
+                                       relaxed_dist_pars = relaxed_dist_pars,
+                                       idparsrelaxed = idparsrelaxed,
+                                       idparsnoshift = idparsnoshift,
+                                       res = res,
+                                       ddmodel = ddmodel,
+                                       cond = cond,
+                                       island_ontogeny = island_ontogeny,
+                                       eqmodel = eqmodel,
+                                       x_E = x_E,
+                                       x_I = x_I,
+                                       tol = tol,
+                                       maxiter = maxiter,
+                                       methode = methode,
+                                       optimmethod = optimmethod,
+                                       CS_version = CS_version,
+                                       verbose = 0,
+                                       tolint = tolint)
+       }
      } else {
-       out <- DAISIE_ML3(datalist = datalist,
-                        initparsopt = initparsopt,
-                        idparsopt = idparsopt,
-                        parsfix = parsfix,
-                        idparsfix = idparsfix,
-                        res = res,
-                        ddmodel = ddmodel,
-                        cond = cond,
-                        island_ontogeny = island_ontogeny,
-                        tol = tol,
-                        maxiter = maxiter,
-                        methode = methode,
-                        optimmethod = optimmethod,
-                        CS_version = CS_version,
-                        verbose = 0,
-                        tolint = tolint)
+       out <- DAISIE_ML_time_dependent(datalist = datalist,
+                                       initparsopt = initparsopt,
+                                       idparsopt = idparsopt,
+                                       parsfix = parsfix,
+                                       idparsfix = idparsfix,
+                                       res = res,
+                                       ddmodel = ddmodel,
+                                       cond = cond,
+                                       island_ontogeny = island_ontogeny,
+                                       tol = tol,
+                                       maxiter = maxiter,
+                                       methode = methode,
+                                       optimmethod = optimmethod,
+                                       CS_version = CS_version,
+                                       verbose = 0,
+                                       tolint = tolint)
      }
   } else {
-     out <- DAISIE_ML2(datalist = datalist,
-                      initparsopt = initparsopt,
-                      idparsopt = idparsopt,
-                      parsfix = parsfix,
-                      idparsfix = idparsfix,
-                      idparsmat = idparsmat,
-                      res = res,
-                      ddmodel = ddmodel,
-                      cond = cond,
-                      tol = tol,
-                      maxiter = maxiter,
-                      methode = methode,
-                      optimmethod = optimmethod,
-                      verbose = 0,
-                      tolint = tolint)
+     out <- DAISIE_ML_2_type(datalist = datalist,
+                             initparsopt = initparsopt,
+                             idparsopt = idparsopt,
+                             parsfix = parsfix,
+                             idparsfix = idparsfix,
+                             idparsmat = idparsmat,
+                             res = res,
+                             ddmodel = ddmodel,
+                             cond = cond,
+                             tol = tol,
+                             maxiter = maxiter,
+                             methode = methode,
+                             optimmethod = optimmethod,
+                             verbose = 0,
+                             tolint = tolint)
   }
   return(out)
 }

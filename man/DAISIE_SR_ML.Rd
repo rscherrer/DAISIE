@@ -152,7 +152,7 @@ used, otherwise the information in the data is overruled.
 # we use:
 
 utils::data(Galapagos_datalist)
-DAISIE_ML(
+DAISIE_ML_CS(
    datalist = Galapagos_datalist,
    initparsopt = c(2.5,2.7,20,0.009,1.01),
    ddmodel = 11,
@@ -165,7 +165,7 @@ DAISIE_ML(
 # except K (which we set equal to Inf), we use:
 
 utils::data(Galapagos_datalist)
-DAISIE_ML(
+DAISIE_ML_CS(
    datalist = Galapagos_datalist,
    initparsopt = c(2.5,2.7,0.009,1.01),
    idparsopt = c(1,2,4,5),
@@ -178,7 +178,7 @@ DAISIE_ML(
 # set equal to Inf), fixing the proportion of finch-type species at 0.163, we use:
 
 utils::data(Galapagos_datalist_2types)
-DAISIE_ML(
+DAISIE_ML_CS(
    datalist = Galapagos_datalist_2types,
    initparsopt = c(0.38,0.55,0.004,1.1,2.28),
    idparsopt = c(1,2,4,5,6),
@@ -192,7 +192,7 @@ DAISIE_ML(
 # parameters, fixing the proportion of finch-type species at 0.163, we use:
 
 utils::data(Galapagos_datalist_2types)
-DAISIE_ML(
+DAISIE_ML_CS(
    datalist = Galapagos_datalist_2types,
    ddmodel = 11,
    initparsopt = c(0.19,0.09,0.002,0.87,20,8.9,15),
@@ -209,7 +209,7 @@ DAISIE_ML(
 # in the mainland pool. we use:
 
 utils::data(Galapagos_datalist_2types)
-DAISIE_ML(
+DAISIE_ML_CS(
    datalist = Galapagos_datalist_2types,
    initparsopt = c(2.48,2.7,0.009,1.01,2.25,0.163),
    idparsopt = c(1,2,4,5,7,11),
@@ -222,7 +222,7 @@ DAISIE_ML(
 # and we want to optimize all parameters, we use:
 
 utils::data(Galapagos_datalist)
-DAISIE_ML(
+DAISIE_ML_CS(
    datalist = list(Galapagos_datalist,Galapagos_datalist),
    datatype = 'multiple',
    initparsopt = c(2.5,2.7,20,0.009,1.01,0.009,1.01),
@@ -239,7 +239,7 @@ DAISIE_ML(
 # and we want to optimize all parameters, we use:
 
 utils::data(Macaronesia_datalist)
-DAISIE_ML(
+DAISIE_ML_CS(
    datalist = Macaronesia_datalist,
    datatype = 'multiple',
    initparsopt = c(1.053151832,0.052148979,0.512939011,0.133766934,0.152763179),
@@ -258,7 +258,7 @@ Equilibrium and non-equilibrium dynamics simultaneously operate in the
 Galapagos islands. Ecology Letters 18: 844-852. <DOI:10.1111/ele.12461>.
 }
 \seealso{
-\code{\link{DAISIE_loglik_all}},
+\code{\link{DAISIE_loglik_CS}},
 \code{\link{DAISIE_sim_constant_rate}}
 }
 \author{

@@ -14,7 +14,7 @@ DAISIE_IC <- function(datalist,
                       res = 100,
                       cond = 0,
                       ddmodel = 0) {
-  MLE_obs <- DAISIE_ML(
+  MLE_obs <- DAISIE_ML_CS(
      datalist = datalist,
      initparsopt = initparsopt,
      idparsopt = idparsopt,
@@ -43,7 +43,7 @@ DAISIE_IC <- function(datalist,
   MLE <- rep(0, endmc)
   LL <- rep(0, endmc)
   for (mc in 1:endmc) {
-    MLE[[mc]] <- DAISIE_ML(
+    MLE[[mc]] <- DAISIE_ML_CS(
        datalist = sims[[mc]],
        initparsopt = MLE_obs[idparsopt],
        idparsopt = idparsopt,
@@ -61,7 +61,7 @@ DAISIE_IC <- function(datalist,
        methode = "lsodes",
        optimmethod = "subplex"
        )$loglik
-    LL[[mc]] <- DAISIE_loglik_all(
+    LL[[mc]] <- DAISIE_loglik_CS(
        pars1 = MLE[[mc]][1:5],
        pars2 = c(res, ddmodel, cond, 0),
        datalist = datalist,
