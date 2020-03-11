@@ -38,7 +38,7 @@ DAISIE_loglik_all_choosepar <- function(trparsopt,
     if (min(pars1) < 0) {
       loglik <- -Inf
     } else {
-      loglik <- DAISIE::DAISIE_loglik_all(
+      loglik <- DAISIE::DAISIE_loglik_CS(
         pars1 = pars1,
         pars2 = pars2,
         datalist = datalist,
@@ -73,7 +73,7 @@ DAISIE_loglik_all_choosepar <- function(trparsopt,
   #' of estimated parameters, i.e. degrees of feedom} \item{conv}{ gives a
   #' message on convergence of optimization; conv = 0 means convergence}
   #'
-  DAISIE_ML1 <- function(
+  DAISIE_ML_constant_rate <- function(
     datalist,
     initparsopt,
     idparsopt,

@@ -1,4 +1,4 @@
-context("DAISIE_ML1")
+context("DAISIE_ML_constant_rate")
 
 test_that("use", {
   if (Sys.getenv("TRAVIS") != "") {
@@ -13,7 +13,7 @@ test_that("use", {
     idparsopt <- 1:5
     parsfix <- NULL
     idparsfix <- NULL
-    tested_MLE <- DAISIE:::DAISIE_ML1(
+    tested_MLE <- DAISIE:::DAISIE_ML_constant_rate(
       datalist = datalist,
       initparsopt = initparsopt,
       idparsopt = idparsopt,
@@ -52,7 +52,7 @@ test_that("abuse", {
     parsfix <- NULL
     idparsfix <- NULL
     expect_error(
-      DAISIE:::DAISIE_ML1(
+      DAISIE:::DAISIE_ML_constant_rate(
         datalist = "nonsense",
         initparsopt = initparsopt,
         idparsopt = idparsopt,
