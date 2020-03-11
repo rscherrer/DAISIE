@@ -108,7 +108,21 @@ default_params_doc(
   plot_lists_simulations,
   plot_lists_simulations_MLE,
   kind_of_plot,
-  resolution
+  resolution,
+  relaxed_rate_dist,
+  relaxed_rate_pars,
+  clado_rate_scale,
+  ext_rate_scale,
+  carry_cap_scale,
+  immig_rate_scale,
+  ana_rate_scale,
+  clado_rate_shape,
+  ext_rate_shape,
+  carry_cap_shape,
+  immig_rate_shape,
+  ana_rate_shape,
+  relaxed_dist_pars,
+  idparsrelaxed
 )
 }
 \arguments{
@@ -601,6 +615,46 @@ based simulations should be plotted. Default is \code{"line"} for multiple
 individual lines. Can also be \code{"shade"} for the 5\% quantile.}
 
 \item{resolution}{numeric indicating resolution of plot. Should be < 0.}
+
+\item{relaxed_rate_dist}{string defining which distribution to sample from,
+options are gamma or normal for the null model.}
+
+\item{relaxed_rate_pars}{Named list of parameters for parameterising the
+distribution to be sampled.}
+
+\item{clado_rate_scale}{scale parameter for a gamma distribution for
+cladogenesis rate}
+
+\item{ext_rate_scale}{scale parameter for a gamma distribution for
+extinction rate}
+
+\item{carry_cap_scale}{scale parameter for a gamma distribution for
+the carrying capacity}
+
+\item{immig_rate_scale}{scale parameter for a gamma distribution for
+immigration rate}
+
+\item{ana_rate_scale}{scale parameter for a gamma distribution for
+anagenesis rate}
+
+\item{clado_rate_shape}{shape parameter for a gamma distribution for
+cladogenesis rate}
+
+\item{ext_rate_shape}{shape parameter for a gamma distribution for
+extinction rate}
+
+\item{carry_cap_shape}{shape parameter for a gamma distribution for
+the carrying capacity}
+
+\item{immig_rate_shape}{shape parameter for a gamma distribution for
+immigration rate}
+
+\item{ana_rate_shape}{shape parameter for a gamma distribution for
+anagenesis rate}
+
+\item{relaxed_dist_pars}{parameters for relaxing parameters in ML}
+
+\item{idparsrelaxed}{the id of the parameters to be relaxed in ML}
 }
 \value{
 Nothing

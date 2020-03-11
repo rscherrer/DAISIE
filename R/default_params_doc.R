@@ -386,6 +386,32 @@
 #' based simulations should be plotted. Default is \code{"line"} for multiple
 #' individual lines. Can also be \code{"shade"} for the 5\% quantile.
 #' @param resolution numeric indicating resolution of plot. Should be < 0.
+#' @param relaxed_rate_dist string defining which distribution to sample from,
+#' options are gamma or normal for the null model.
+#' @param relaxed_rate_pars Named list of parameters for parameterising the
+#' distribution to be sampled.
+#' @param clado_rate_scale scale parameter for a gamma distribution for
+#' cladogenesis rate
+#' @param ext_rate_scale scale parameter for a gamma distribution for
+#' extinction rate
+#' @param carry_cap_scale scale parameter for a gamma distribution for
+#' the carrying capacity
+#' @param immig_rate_scale scale parameter for a gamma distribution for
+#' immigration rate
+#' @param ana_rate_scale scale parameter for a gamma distribution for
+#' anagenesis rate
+#' @param clado_rate_shape shape parameter for a gamma distribution for
+#' cladogenesis rate
+#' @param ext_rate_shape shape parameter for a gamma distribution for
+#' extinction rate
+#' @param carry_cap_shape shape parameter for a gamma distribution for
+#' the carrying capacity
+#' @param immig_rate_shape shape parameter for a gamma distribution for
+#' immigration rate
+#' @param ana_rate_shape shape parameter for a gamma distribution for
+#' anagenesis rate
+#' @param relaxed_dist_pars parameters for relaxing parameters in ML
+#' @param idparsrelaxed the id of the parameters to be relaxed in ML
 #'
 #' @return Nothing
 #'
@@ -493,7 +519,21 @@ default_params_doc <- function(
   plot_lists_simulations,
   plot_lists_simulations_MLE,
   kind_of_plot,
-  resolution
+  resolution,
+  relaxed_rate_dist,
+  relaxed_rate_pars,
+  clado_rate_scale,
+  ext_rate_scale,
+  carry_cap_scale,
+  immig_rate_scale,
+  ana_rate_scale,
+  clado_rate_shape,
+  ext_rate_shape,
+  carry_cap_shape,
+  immig_rate_shape,
+  ana_rate_shape,
+  relaxed_dist_pars,
+  idparsrelaxed
 ) {
   # Nothing
 }
