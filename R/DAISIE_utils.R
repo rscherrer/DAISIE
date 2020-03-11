@@ -383,3 +383,77 @@ create_singleton_phylo <- function(age) {
   tr$tip.label <- "stem"
   tr
 }
+
+#' Samples from distribution when parameter is relaxed
+#'
+#' @inheritParams default_params_doc
+#'
+#' @return A vector of parameters.
+#' @export
+sample_relaxed_dist <- function(pars,
+                                relaxed_rate_dist,
+                                relaxed_rate_pars) {
+
+  testit::assert(relaxed_rate_dist == "gamma" ||
+                   relaxed_rate_dist == "null")
+  if(relaxed_rate_dist == "gamma") {
+    if (!is.null(relaxed_rate_pars$clado_rate_scale)) {
+      pars[1] <- stats::rgamma(n = 1,
+                               shape = relaxed_rate_pars$clado_rate_shape,
+                               scale = relaxed_rate_pars$clado_rate_scale)
+    }
+    if (!is.null(relaxed_rate_pars$ext_rate_scale)) {
+      pars[2] <- stats::rgamma(n = 1,
+                               shape = relaxed_rate_pars$ext_rate_shape,
+                               scale = relaxed_rate_pars$ext_rate_scale)
+    }
+    if (!is.null(relaxed_rate_pars$carry_cap_scale)) {
+      pars[3] <- stats::rgamma(n = 1,
+                               shape = relaxed_rate_pars$carry_cap_shape,
+                               scale = relaxed_rate_pars$carry_cap_scale)
+    }
+    if (!is.null(relaxed_rate_pars$immig_rate_scale)) {
+      pars[4] <- stats::rgamma(n = 1,
+                               shape = relaxed_rate_pars$immig_rate_shape,
+                               scale = relaxed_rate_pars$immig_rate_scale)
+    }
+    if (!is.null(relaxed_rate_pars$ana_rate_scale)) {
+      pars[5] <- stats::rgamma(n = 1,
+                               shape = relaxed_rate_pars$ana_rate_shape,
+                               scale = relaxed_rate_pars$ana_rate_scale)
+    }
+  }
+  if (relaxed_rate_dist == "null") {
+    if (!is.null(relaxed_rate_pars$clado_rate_scale)) {
+      pars[1] <- stats::rnorm(n = 1,
+                               mean = relaxed_rate_pars$clado_rate_shape *
+                                relaxed_rate_pars$clado_rate_scale,
+                               sd = 0)
+    }
+    if (!is.null(relaxed_rate_pars$ext_rate_scale)) {
+      pars[2] <- stats::rnorm(n = 1,
+                               mean = relaxed_rate_pars$ext_rate_shape *
+                                relaxed_rate_pars$ext_rate_scale,
+                               sd = 0)
+    }
+    if (!is.null(relaxed_rate_pars$carry_cap_scale)) {
+      pars[3] <- stats::rnorm(n = 1,
+                               mean = relaxed_rate_pars$ana_rate_shape *
+                                relaxed_rate_pars$ana_rate_scale,
+                               sd = 0)
+    }
+    if (!is.null(relaxed_rate_pars$immig_rate_scale)) {
+      pars[4] <- stats::rnorm(n = 1,
+                               mean = relaxed_rate_pars$immig_rate_shape *
+                                relaxed_rate_pars$immig_rate_scale,
+                               sd = 0)
+    }
+    if (!is.null(relaxed_rate_pars$ana_rate_scale)) {
+      pars[5] <- stats::rnorm(n = 1,
+                               mean = relaxed_rate_pars$ana_rate_shape *
+                                relaxed_rate_pars$ana_rate_scale,
+                               sd = 0)
+    }
+  }
+  return(pars)
+}
