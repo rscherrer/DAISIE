@@ -67,6 +67,13 @@ DAISIE_plot_input <- function(
   trees, age = NULL, tcols = NULL, metadata = NULL, mapping = NULL,
   xlen = 0.001, pargs = NULL, bckgd = "white"
 ) {
+  # lint fix
+  clade <- NULL
+  data <- NULL
+  node <- NULL
+  . <- NULL
+  y <- NULL
+  tcol <- NULL
 
   if (is.null(age)) age <- max(purrr::map_dbl(
     trees, ~ max(ape::node.depth.edgelength(.x))
@@ -83,7 +90,7 @@ DAISIE_plot_input <- function(
 
   # Before we add fake tips, identify the actual tips and assign clades
   tipclades <- list(
-    tip = purrr::map(trees, ~ .x$tip.label),
+    label = purrr::map(trees, ~ .x$tip.label),
     clade = purrr::map2(names(trees), trees, ~ rep(.x, length(.y$tip.label)))
   ) %>% purrr::map_dfc(~ do.call("c", .x))
 
@@ -130,7 +137,7 @@ DAISIE_plot_input <- function(
   p <- p + ggplot2::geom_vline(xintercept = -age, lty = 2)
 
   # Assign clades to tips
-  p <-p %<+% tipclades
+  p$data <- p$data %>% dplyr::left_join(tipclades)
 
   # Infer the clades of the internal nodes based on tips
   nodeclades <- p$data %>%
