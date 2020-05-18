@@ -1,4 +1,4 @@
-#' #' DAISIE tree plot
+#' #' DAISIE input tree plot
 #'
 #' Shows the phylogenies of the multiple clades present on the island
 #'
@@ -42,7 +42,7 @@
 #' age <- 5
 #'
 #' # Make a plot
-#' p <- daisietreeplot(
+#' p <- DAISIE_plot_input(
 #'   trees,
 #'   tcols,
 #'   age,
@@ -63,7 +63,7 @@
 #'
 #' @export
 
-daisietreeplot <- function(
+DAISIE_plot_input <- function(
   trees, age = NULL, tcols = NULL, metadata = NULL, mapping = NULL,
   xlen = 0.001, pargs = NULL, bckgd = "white"
 ) {
@@ -72,6 +72,14 @@ daisietreeplot <- function(
     trees, ~ max(ape::node.depth.edgelength(.x))
   ))
   if (is.null(tcols)) tcols <- rep(age, length(trees))
+
+  # Function to stick a layer of white rectangles to hide some parts
+  white_rect <- function(xmin, xmax, ymin, ymax, color = "white") {
+    ggplot2::geom_rect(
+      xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, color = color,
+      fill = color
+    )
+  }
 
   # Before we add fake tips, identify the actual tips and assign clades
   tipclades <- list(
@@ -122,7 +130,7 @@ daisietreeplot <- function(
   p <- p + ggplot2::geom_vline(xintercept = -age, lty = 2)
 
   # Assign clades to tips
-  p <- p %<+% tipclades
+  p <-p %<+% tipclades
 
   # Infer the clades of the internal nodes based on tips
   nodeclades <- p$data %>%
